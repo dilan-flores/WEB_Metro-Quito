@@ -25,7 +25,7 @@ export const Formulario = ({setEstado,idMetro}) => {
         {
             (async function (idMetro) {
                 try {
-                    const respuesta = await (await fetch(`http://localhost:3000/metro/${idMetro}`)).json()
+                    const respuesta = await (await fetch(`https://64db039f593f57e435b057de.mockapi.io/metro/metro/${idMetro}`)).json()
                     const {id,nombre,sector,salida,llegada,maquinista,detalles} = respuesta
                     setform({
                         ...form,
@@ -68,7 +68,7 @@ export const Formulario = ({setEstado,idMetro}) => {
         }
         try {
             if(form.id){
-                const url = `http://localhost:3000/metro/${form.id}`
+                const url = `https://64db039f593f57e435b057de.mockapi.io/metro/metro/${form.id}`
                 await fetch(url,{
                     method:'PUT',
                     body:JSON.stringify(form),
@@ -82,7 +82,7 @@ export const Formulario = ({setEstado,idMetro}) => {
                 }, 1000)
             }
             else{
-                const url ="http://localhost:3000/metro"
+                const url ="https://64db039f593f57e435b057de.mockapi.io/metro/metro"
 				form.id = uuidv4()
                 await fetch(url,{
                     // Método para crear un nuevo recurso
